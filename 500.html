@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>500 - Server Error | 0xFF5</title>
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+    <link rel="icon" type="image/x-icon" href="/favicon.ico">
+    <style>
+        :root {
+            --primary-bg: #0a0a0a;
+            --primary-color: #e0e0e0;
+            --accent-color: #00ff88;
+            --error-color: #ff4444;
+            --secondary-color: #666;
+            --font-mono: 'JetBrains Mono', 'SF Mono', Monaco, 'Cascadia Code', 'Roboto Mono', Consolas, 'DejaVu Sans Mono', 'Liberation Mono', 'Courier New', monospace;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: var(--font-mono);
+            background-color: var(--primary-bg);
+            color: var(--primary-color);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            line-height: 1.6;
+        }
+
+        .error-container {
+            text-align: center;
+            padding: 2rem;
+            max-width: 600px;
+        }
+
+        .error-code {
+            font-size: 8rem;
+            font-weight: bold;
+            color: var(--error-color);
+            margin-bottom: 1rem;
+            opacity: 0.8;
+        }
+
+        .error-message {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: var(--primary-color);
+        }
+
+        .error-description {
+            font-size: 1rem;
+            color: var(--secondary-color);
+            margin-bottom: 2rem;
+        }
+
+        .button-container {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .error-button {
+            display: inline-block;
+            padding: 12px 24px;
+            background-color: transparent;
+            text-decoration: none;
+            border: 2px solid;
+            border-radius: 4px;
+            font-family: var(--font-mono);
+            font-size: 1rem;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .home-link {
+            color: var(--accent-color);
+            border-color: var(--accent-color);
+        }
+
+        .home-link:hover {
+            background-color: var(--accent-color);
+            color: var(--primary-bg);
+            transform: translateY(-2px);
+        }
+
+        .reload-button {
+            color: var(--error-color);
+            border-color: var(--error-color);
+        }
+
+        .reload-button:hover {
+            background-color: var(--error-color);
+            color: var(--primary-bg);
+            transform: translateY(-2px);
+        }
+
+        .error-button:focus {
+            outline: 2px solid;
+            outline-offset: 2px;
+        }
+
+        .home-link:focus {
+            outline-color: var(--accent-color);
+        }
+
+        .reload-button:focus {
+            outline-color: var(--error-color);
+        }
+
+        @media (max-width: 768px) {
+            .error-code {
+                font-size: 6rem;
+            }
+            
+            .error-message {
+                font-size: 1.25rem;
+            }
+            
+            .error-container {
+                padding: 1rem;
+            }
+
+            .button-container {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .error-button {
+                width: 100%;
+                max-width: 200px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="error-container">
+        <div class="error-code">500</div>
+        <div class="error-message">Server Error</div>
+        <div class="error-description">
+            Something went wrong on our end. Please try refreshing the page or return to the homepage.
+        </div>
+        <div class="button-container">
+            <a href="/" class="error-button home-link">← Back to Home</a>
+            <button onclick="location.reload()" class="error-button reload-button">↻ Reload Page</button>
+        </div>
+    </div>
+</body>
+</html>

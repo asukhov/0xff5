@@ -1,0 +1,27 @@
+/* Local JetBrains Mono - load local WOFF2 first, then fall back to system fonts */
+:root{
+    --font-mono: 'JetBrains Mono', 'SF Mono', Monaco, 'Cascadia Code', 'Roboto Mono', Consolas, 'DejaVu Sans Mono', 'Liberation Mono', 'Courier New', monospace;
+}
+
+/* Regular 400 */
+@font-face{
+    font-family: 'JetBrains Mono';
+    font-style: normal;
+    font-weight: 400;
+    font-display: swap;
+    src: url('./JetBrainsMono-Regular.woff2') format('woff2'),
+         local('JetBrains Mono'), local('JetBrainsMono-Regular');
+}
+
+/* Bold 700 */
+@font-face{
+    font-family: 'JetBrains Mono';
+    font-style: normal;
+    font-weight: 700;
+    font-display: swap;
+    src: url('./JetBrainsMono-Bold.woff2') format('woff2'),
+         local('JetBrains Mono Bold'), local('JetBrainsMono-Bold');
+}
+
+/* Additional weights are available in the fonts folder; the CSS intentionally limits to Regular and Bold for compactness.
+   JetBrains Mono is distributed under the Apache-2.0 license; see the project release for licensing details. */

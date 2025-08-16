@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Apple Touch Icon Generator - 0xFF5</title>
+    <style>
+        body {
+            font-family: 'Consolas', 'Monaco', monospace;
+            background: #0a0a0a;
+            color: #00ff88;
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 20px;
+        }
+        
+        .container {
+            text-align: center;
+            max-width: 600px;
+        }
+        
+        h1 {
+            color: #00ff88;
+            margin-bottom: 10px;
+        }
+        
+        .description {
+            color: #666;
+            margin-bottom: 30px;
+        }
+        
+        canvas {
+            border: 2px solid #00ff88;
+            background: #0a0a0a;
+            margin: 20px 0;
+        }
+        
+        .size-info {
+            color: #666;
+            font-size: 14px;
+            margin: 10px 0;
+        }
+        
+        button {
+            background: transparent;
+            border: 2px solid #00ff88;
+            color: #00ff88;
+            padding: 12px 24px;
+            font-family: inherit;
+            font-size: 16px;
+            cursor: pointer;
+            margin: 10px;
+            transition: all 0.3s ease;
+        }
+        
+        button:hover {
+            background: #00ff88;
+            color: #0a0a0a;
+        }
+        
+        .generated {
+            margin-top: 20px;
+            padding: 20px;
+            border: 1px solid #333;
+            border-radius: 8px;
+        }
+        
+        .download-link {
+            display: inline-block;
+            background: #00ff88;
+            color: #0a0a0a;
+            padding: 12px 24px;
+            text-decoration: none;
+            margin: 10px;
+            border-radius: 4px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🍎 Apple Touch Icon Generator</h1>
+        <p class="description">
+            Generates apple-touch-icon.png (180x180px) for your 0xFF5 portfolio
+        </p>
+        
+        <canvas id="iconCanvas" width="180" height="180"></canvas>
+        <div class="size-info">180x180 pixels - Apple Touch Icon size</div>
+        
+        <button onclick="generateIcon()">Generate Apple Touch Icon</button>
+        <button onclick="downloadIcon()">Download PNG</button>
+        
+        <div id="result" class="generated" style="display: none;">
+            <h3>✅ Apple Touch Icon Generated!</h3>
+            <p>Right-click the download link and "Save As" → <strong>apple-touch-icon.png</strong></p>
+            <a id="downloadLink" class="download-link" download="apple-touch-icon.png">
+                📱 Download apple-touch-icon.png
+            </a>
+        </div>
+    </div>
+
+    <script>
+        const canvas = document.getElementById('iconCanvas');
+        const ctx = canvas.getContext('2d');
+        
+        function generateIcon() {
+            // Clear canvas
+            ctx.clearRect(0, 0, 180, 180);
+            
+            // Fill background with dark color
+            ctx.fillStyle = '#0a0a0a';
+            ctx.fillRect(0, 0, 180, 180);
+            
+            // Set up text styling for "0x"
+            ctx.fillStyle = '#00ff88';
+            ctx.font = 'bold 72px monospace'; // Larger for 180x180
+            ctx.textAlign = 'center';
+            ctx.textBaseline = 'middle';
+            
+            // Draw "0x" text in center
+            ctx.fillText('0x', 90, 90);
+            
+            console.log('Apple touch icon generated successfully');
+        }
+        
+        function downloadIcon() {
+            // Convert canvas to blob and create download link
+            canvas.toBlob(function(blob) {
+                const url = URL.createObjectURL(blob);
+                const downloadLink = document.getElementById('downloadLink');
+                
+                downloadLink.href = url;
+                
+                // Show result section
+                document.getElementById('result').style.display = 'block';
+                
+                console.log('Download link created');
+            }, 'image/png');
+        }
+        
+        // Auto-generate on page load
+        window.addEventListener('load', function() {
+            setTimeout(generateIcon, 500);
+        });
+    </script>
+</body>
+</html>
