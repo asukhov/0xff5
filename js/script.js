@@ -21,11 +21,9 @@ document.addEventListener('DOMContentLoaded', function() {
         new Typed('.typing-text', {
             strings: [
                 'an Engineer',
-                'a Creator',
                 'a Problem Solver',
-                'a Cloud Navigator',
                 'an IT Architect',
-                'Aleksandr Sukhov'
+                'a Digital Backbone Builder'
             ],
             typeSpeed: 100,
             backSpeed: 60,
