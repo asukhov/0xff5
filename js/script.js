@@ -22,8 +22,7 @@ document.addEventListener('DOMContentLoaded', function() {
             strings: [
                 'an Engineer',
                 'a Problem Solver',
-                'an IT Architect',
-                'a Digital Backbone Builder'
+                'an IT Architect'
             ],
             typeSpeed: 100,
             backSpeed: 60,
